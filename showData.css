@@ -1,0 +1,39 @@
+/* Style the table */
+table {
+    width: 100%;
+    max-width: 100%; /* Set maximum width to 100% of the parent container */
+    border-collapse: collapse;
+    margin: 20px auto;
+    border: 1px solid #ddd; /* Add a border to the entire table */
+}
+
+/* Style table header cells */
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+    border-right: 1px solid #ddd; /* Add a right border to header cells */
+}
+
+/* Style table data cells */
+td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd; /* Add a right border to data cells */
+}
+
+/* Alternate row background color for better readability */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover effect for table rows */
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Remove highlighting from the last row */
+tr:last-child {
+    background-color: transparent;
+}

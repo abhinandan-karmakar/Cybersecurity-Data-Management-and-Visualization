@@ -1,0 +1,42 @@
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgb(128, 255, 255);
+	color: rgb(0, 0, 0);
+	padding: 10px;
+}
+
+
+header .logo-link{
+	background-color: none;
+}
+
+header .logo {
+	width: 100px;
+	height: auto;
+}
+
+header span {
+	flex-grow: 1;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+/* Style for the <button> elements inside the header */
+header a.header-button {
+	text-decoration: none;
+	padding: 10px 20px;
+	background-color: yellow;
+	color: rgb(0, 0, 0);
+	border: 1px solid #333;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* Style the header button on hover */
+header a.header-button:hover {
+	background-color: #555;
+}

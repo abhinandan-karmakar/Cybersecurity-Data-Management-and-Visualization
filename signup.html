@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>SignUp</title>
+	<link rel="stylesheet" href="/css/header.css">
+	<link rel="stylesheet" href="/css/registration/signup.css">
+	<style>
+		/* Style for indicating password strength */
+		.password-strength {
+			color: #ff0000;
+			/* Red color for weak passwords */
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<a href="" class="logo-link">
+			<img th:src="@{/image/logo.png}" alt="Logo" class="logo">
+		</a>
+	</header>
+
+	<h1>SignUp Form</h1>
+	<form action="registerUser" method="post" onsubmit="return validatePassword()">
+		FirstName: <input type="text" name="firstName" required /><br>
+		LastName: <input type="text" name="lastName" required /><br>
+		E-Mail: <input type="email" name="email" required /><br>
+		<b th:text="${emailExistError}"></b><br>
+		Emp-ID: <input type="text" name="empId" required /><br>
+		<b th:text="${empExistError}"></b><br>
+		Password: <input type="password" name="password" id="password" required /><br>
+		<span class="password-strength" id="password-strength">Password strength: </span><br>
+		Confirm Password: <input type="password" name="confirmPassword" id="confirmPassword" required /><br>
+		<input type="submit" value="Submit" />
+	</form>
+
+	<p>If you already have an account, <a href="/login">Login here</a>.</p>
+
+	<script>
+		// Function to validate password strength
+		function validatePassword() {
+			var password = document.getElementById("password").value;
+			var confirmPassword = document.getElementById("confirmPassword").value;
+			var passwordStrength = document.getElementById("password-strength");
+
+			// Check if the password meets the length requirement
+			if (password.length < 8) {
+				passwordStrength.innerHTML = "Password is too short (minimum 8 characters)";
+				return false;
+			} else {
+				passwordStrength.innerHTML = ""; // Reset the password strength message
+			}
+
+			// Check if the password contains at least one digit (alphanumeric check)
+			if (!/\d/.test(password)) {
+				passwordStrength.innerHTML += "Password should contain at least one digit (0-9)<br>";
+				return false;
+			}
+
+			// Check if the password contains at least one special character
+			if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
+				passwordStrength.innerHTML += "Password should contain at least one special character<br>";
+				return false;
+			}
+
+			// Check if the passwords match
+			if (password !== confirmPassword) {
+				alert("Passwords do not match");
+				return false;
+			}
+
+			// Check if there are any strength messages; if not, it's strong
+			if (passwordStrength.innerHTML === "") {
+				passwordStrength.innerHTML = "Password strength: Strong";
+			}
+
+			return true;
+		}
+	</script>
+</body>
+
+</html>

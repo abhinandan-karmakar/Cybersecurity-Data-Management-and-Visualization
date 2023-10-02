@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/registration/login.css">
+    <link rel="stylesheet" href="/css/header.css">
+</head>
+<body>
+  <header>
+		<a href="" class="logo-link">
+			<img th:src="@{/image/logo.png}" alt="Logo" class="logo">
+		</a>
+	</header>
+  <h1>Login</h1>
+  <form action="loginUser" method="post">
+    E-Mail: <input type="text" name="email" /><br />
+    Password: <input type="password" name="password" /><br />
+    <input type="submit" value="Login" />
+  </form>
+  <b th:text="${error}"></b>
+  <div class="links">
+    <a href="#">Forgot Password?</a>
+    <a href="/signup">Don't have an account? Sign up</a>
+  </div>
+</body>
+
+</html>

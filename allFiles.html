@@ -2,14 +2,14 @@
 
 <head>
 	<title>Files</title>
-	<link rel="stylesheet" type="text/css" href="/css/guest/allFiles.css">
+	<link rel="stylesheet" type="text/css" href="/css/user/allFiles.css">
 	<link rel="stylesheet" type="text/css" href="/css/header.css">
 	
 </head>
 
 <body>
 	<header>
-		<a href="/guestDashboard" class="logo-link">
+		<a href="/userDashboard" class="logo-link">
 			<img th:src="@{/image/logo.png}" alt="Logo" class="logo">
 		</a>
 		<span>Uploaded Files</span>
@@ -34,11 +34,15 @@
 		
 			<td class="button-container"> 
 			
-				<form method="post" action="/guest/showData" target="_blank">
+				<form method="post" action="/user/downloadFile">
+					<input type="hidden" name="id" th:value="${file.id}">
+					<button type="submit">Download</button>
+				</form>
+				<form method="post" action="/user/showData" target="_blank">
 					<input type="hidden" name="id" th:value="${file.id}">
 					<button type="submit">Data</button>
 				</form>
-				<form method="post" action="/guest/dataDashboard" target="_blank">
+				<form method="post" action="/user/dataDashboard" target="_blank">
 					<input type="hidden" name="id" th:value="${file.id}">
 					<button type="submit">Dashboard</button>
 				</form>

@@ -2,7 +2,7 @@
 
 <head>
 	<title>File Data</title>
-	<link rel="stylesheet" type="text/css" href="/css/guest/showData.css">
+	<link rel="stylesheet" type="text/css" href="/css/user/showData.css">
 	<style>
 		header {
 			display: flex;
@@ -58,7 +58,7 @@
 			<th>Closing Data</th>
 		</tr>
 		<tr th:each="data : ${datas}">
-			<td th:text="${#strings.arraySplit(data.host, '.')[0] + '.*.*.*'}"></td>
+			<td th:text="${data.host}"></td>
 			<td th:text="${data.netbios}"></td>
 			<td th:text="${data.os}"></td>
 			<td th:text="${data.name}"></td>

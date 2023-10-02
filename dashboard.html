@@ -3,21 +3,20 @@
 
 <head>
 	<title>User</title>
-	<link rel="stylesheet" type="text/css" href="/css/guest/dashboard.css"> 
+	<link rel="stylesheet" type="text/css" href="/css/user/dashboard.css"> 
 	<link rel="stylesheet" type="text/css" href="/css/header.css"> 
 </head>
 
 <body>
 	<header>
-		<a href="/guestDashboard" class="logo-link">
+		<a href="/userDashboard" class="logo-link">
 			<img th:src="@{/image/logo.png}" alt="Logo" class="logo">
 		</a>
-		<span>Guest Dashboard</span>
+		<span>Admin Dashboard</span>
 		<a href="/logout" class="header-button">Logout</a>
 	</header>
 
-	<a class="body-a" href="/guest/allFiles">All Files</a><br>
-	<a class="body-a" href="/guest/searchFile">Search Files</a>
+	<a class="body-a" href="/user/allFiles">All Files</a><br>
 </body>
 
 </html>

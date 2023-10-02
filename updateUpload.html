@@ -1,0 +1,77 @@
+<html>
+
+<head>
+	<title>File Upload</title>
+	<link rel="stylesheet" type="text/css" href="/css/admin/uploadFile.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+</head>
+
+<body>
+	<!-- Header -->
+	<header>
+		<a href="/adminDashboard" class="logo-link">
+			<img th:src="@{/image/logo.png}" alt="Logo" class="logo">
+		</a>
+		<span>Upload File</span>
+		<a href="/logout" class="header-button">Logout</a>
+	</header>
+	<!---->
+
+	<form action="/admin/updateUploadControl" method="post" enctype="multipart/form-data">
+		Month: <select name="month" id="monthSelect">
+			<option value="January">January</option>
+			<option value="February">February</option>
+			<option value="March">March</option>
+			<option value="April">April</option>
+			<option value="May">May</option>
+			<option value="June">June</option>
+			<option value="July">July</option>
+			<option value="August">August</option>
+			<option value="September">September</option>
+			<option value="October">October</option>
+			<option value="November">November</option>
+			<option value="December">December</option>
+		</select>
+		Year: <select name="year" id="yearSelect">
+			<option value="2021">2021</option>
+			<option value="2022">2022</option>
+			<option value="2023">2023</option>
+			<option value="2024">2024</option>
+			<option value="2025">2025</option>
+			<option value="2026">2026</option>
+			<option value="2027">2027</option>
+			<option value="2028">2028</option>
+			<option value="2029">2029</option>
+			<option value="2030">2030</option>
+		</select>
+		File: <input type="file" name="file" required/>
+		
+		<input type="hidden" name="id" th:value="${id}">
+		
+		<input type="hidden" name="domain" th:value="${domain}">
+		
+		<input type="submit" />
+	</form>
+	<b th:text="${error}"></b>
+
+	<script>
+		const currentDate = new Date();
+		const currentMonth = new Intl.DateTimeFormat('en-US', {month: 'long'}).format(currentDate);
+		const currentYear = currentDate.getFullYear();
+
+		const monthSelect = document.getElementById("monthSelect");
+		const yearSelect = document.getElementById("yearSelect");
+
+		for (let i = 0; i < monthSelect.options.length; i++) {
+			if (monthSelect.options[i].text.toLowerCase() === currentMonth.toLowerCase()) {
+				monthSelect.options[i].setAttribute("selected", "selected");
+				break;
+			}
+		}
+
+		yearSelect.value = currentYear.toString();
+	</script>
+
+</body>
+
+</html>

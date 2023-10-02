@@ -1,0 +1,82 @@
+<html>
+
+<head>
+	<title>File Data</title>
+	<link rel="stylesheet" type="text/css" href="/css/admin/showData.css">
+	<style>
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			color: rgb(0, 0, 0);
+			padding: 10px;
+		}
+
+
+		header .logo-link {
+			background-color: none;
+		}
+
+		header .logo {
+			width: 100px;
+			height: auto;
+		}
+
+		header span {
+			flex-grow: 1;
+			text-align: center;
+			font-weight: bold;
+			font-size: 20px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<img src="/image/logo.png" alt="Logo" class="logo" />
+		<span>File Data</span>
+	</header>
+	<table>
+		<tr>
+			<th>Host</th>
+			<th>NetBios</th>
+			<th>OS</th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Risk</th>
+			<th>Port</th>
+			<th>Protocol</th>
+			<th>CVE</th>
+			<th>Threat</th>
+			<th>Solution</th>
+			<th>Results</th>
+			<th>Date</th>
+			<th>Status</th>
+			<th>Ageing</th>
+			<th>SLA</th>
+			<th>Closing Data</th>
+		</tr>
+		<tr th:each="data : ${datas}">
+			<td th:text="${data.host}"></td>
+			<td th:text="${data.netbios}"></td>
+			<td th:text="${data.os}"></td>
+			<td th:text="${data.name}"></td>
+			<td th:text="${data.type}"></td>
+			<td th:text="${data.risk}"></td>
+			<td th:text="${data.port}"></td>
+			<td th:text="${data.protocol}"></td>
+			<td th:text="${data.cve}"></td>
+			<td th:text="${data.threat}"></td>
+			<td th:text="${data.solution}"></td>
+			<td th:text="${data.results}"></td>
+			<td th:text="${data.date}"></td>
+			<td th:text="${data.status}"></td>
+			<td th:text="${data.ageing}"></td>
+			<td th:text="${data.sla}"></td>
+			<td th:text="${data.closingDate}"></td>
+		</tr>
+	</table>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<html>
+
+<head>
+	<title>Files</title>
+	<link rel="stylesheet" type="text/css" href="/css/admin/allFiles.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+
+</head>
+
+<body>
+	<header>
+		<a href="/adminDashboard" class="logo-link">
+			<img th:src="@{/image/logo.png}" alt="Logo" class="logo">
+		</a>
+		<span>Files</span>
+		<a href="/logout" class="header-button">Logout</a>
+	</header>
+
+	<table>
+		<tr>
+			<th>Year</th>
+			<th>Month</th>
+			<th>Domain</th>
+			<th>Name</th>
+			<th>Last Update</th>
+			<th>Actions</th>
+		</tr>
+		<tr th:each="file : ${allFiles}">
+			<td th:text="${file.year}"></td>
+			<td th:text="${file.month}"></td>
+			<td th:text="${file.domain}"></td>
+			<td th:text="${file.name}"></td>
+			<td th:text="${#dates.format(file.uploadTime, 'dd-MM-yyyy HH:mm')}"></td>
+
+			<td class="button-container">
+
+				<form method="post" action="/admin/downloadFile">
+					<input type="hidden" name="id" th:value="${file.id}">
+					<button type="submit">Download</button>
+				</form>
+
+				<form method="post" action="/admin/deleteFile">
+					<input type="hidden" name="id" th:value="${file.id}">
+					<button type="submit">Delete</button>
+				</form>
+				<form method="post" action="/admin/updateFile">
+					<input type="hidden" name="id" th:value="${file.id}">
+					<button type="submit">Update</button>
+				</form>
+				<form method="post" action="/admin/showData" target="_blank">
+					<input type="hidden" name="id" th:value="${file.id}">
+					<button type="submit">Data</button>
+				</form>
+				<form method="post" action="/admin/dataDashboard" target="_blank">
+					<input type="hidden" name="id" th:value="${file.id}">
+					<button type="submit">Dashboard</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+
+
+</body>
+
+</html>

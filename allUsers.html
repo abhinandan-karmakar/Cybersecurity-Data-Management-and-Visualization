@@ -1,0 +1,48 @@
+<html>
+
+<head>
+	<title>Users</title>
+	<link rel="stylesheet" type="text/css" href="/css/admin/allFiles.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	
+</head>
+
+<body>
+	<header>
+		<a href="/adminDashboard" class="logo-link">
+			<img th:src="@{/image/logo.png}" alt="Logo" class="logo">
+		</a>
+		<span>Users</span>
+		<a href="/logout" class="header-button">Logout</a>
+	</header>
+
+	<table>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>E-Mail</th>
+			<th>Create Time</th>
+			<th>Actions</th>
+		</tr>
+		<tr th:each="user : ${users}">
+			<td th:text="${user.firstName}"></td>
+			<td th:text="${user.lastName}"></td>
+			<td th:text="${user.email}"></td>
+			<td th:text="${#dates.format(user.signupTime, 'dd-MM-yyyy HH:mm')}"></td>
+		
+			<td class="button-container"> 
+			
+				<form method="post" action="/admin/viewUser">
+					<input type="hidden" name="id" th:value="${user.id}">
+					<button type="submit">View</button>
+				</form>
+			
+				
+			</td>
+		</tr>
+	</table>
+	
+
+</body>
+
+</html>

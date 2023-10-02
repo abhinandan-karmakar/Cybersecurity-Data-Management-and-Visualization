@@ -1,0 +1,16 @@
+<html>
+
+<head>
+	<title>Confirm Delete</title>
+</head>
+
+<body tyle="text-align: center; background-color: #f0f0f0; font-family: Arial, sans-serif;">
+	<h2>File will be deleted permanently. Are you sure ?</h2>
+
+	<form method="post" action="/admin/deleteAction">
+		<input type="hidden" name="id" th:value="${id}">
+		<button type="submit" style="display: block; margin-top: 20px; text-decoration: none; background-color: #007bff; color: #fff; padding: 10px 20px; border-radius: 5px; width: 100px;">Yes</button>
+	</form>
+</body>
+
+</html>

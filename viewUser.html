@@ -1,0 +1,32 @@
+<html>
+
+<head>
+	<title>User</title>
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/admin/viewUser.css">
+</head>
+
+<body>
+	<header>
+		<a href="/adminDashboard" class="logo-link">
+			<img th:src="@{/image/logo.png}" alt="Logo" class="logo">
+		</a>
+		<span>User</span>
+		<a href="/logout" class="header-button">Logout</a>
+	</header>
+
+	<div class="user-details">
+		First Name: <span th:text="${user.firstName}"></span><br>
+		Last Name: <span th:text="${user.lastName}"></span><br>
+		E-Mail: <span th:text="${user.email}"></span><br>
+		Employee ID: <span th:text="${user.empId}"></span><br>
+		Role: <span th:text="${role}"></span><br>
+
+		<form method="post" action="/admin/editUser">
+			<input type="hidden" name="id" th:value="${user.id}">
+			<button type="submit">Edit Role</button>
+		</form>
+	</div>
+</body>
+
+</html>

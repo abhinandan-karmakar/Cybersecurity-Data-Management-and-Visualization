@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Grouped Bar Chart</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<style>
+		#groupedChartContainer {
+			width: 80%;
+			/* Adjust the width as needed */
+			margin: auto;
+			/* Center the chart container */
+		}
+
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			color: rgb(0, 0, 0);
+			padding: 10px;
+		}
+
+
+		header .logo-link {
+			background-color: none;
+		}
+
+		header .logo {
+			width: 100px;
+			height: auto;
+		}
+
+		header span {
+			flex-grow: 1;
+			text-align: center;
+			font-weight: bold;
+			font-size: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<img src="/image/logo.png" alt="Logo" class="logo" />
+		<span>Dashboard</span>
+	</header>
+
+	<div id="groupedChartContainer">
+		<canvas id="groupedChart" width="400" height="200"></canvas>
+	</div>
+
+	<script th:inline="javascript">
+		var groupedChartData = /*[[${groupedChartData}]]*/ {};
+		var categories = ["Critical", "High", "Medium", "Low"]; // Define the desired order of categories
+		var subCategories = ["Open", "Close", "Exception"];
+
+		var colors = {
+			"Open": "rgba(255, 0, 0, 1)", // Red
+			"Close": "rgba(0, 128, 0, 1)", // Green
+			"Exception": "rgba(228, 208, 10, 1)" // Yellow
+		};
+
+		var datasets = subCategories.map(function (subCategory) {
+			return {
+				label: subCategory,
+				data: categories.map(function (category) {
+					return groupedChartData[category][subCategory];
+				}),
+				backgroundColor: colors[subCategory],
+				borderWidth: 1
+			};
+		});
+
+		var ctx = document.getElementById("groupedChart").getContext("2d");
+
+		var groupedChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: categories,
+				datasets: datasets
+			},
+			options: {
+				responsive: true,
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				},
+				plugins: {
+					legend: {
+						position: 'top'
+					}
+				}
+			}
+		});
+	</script>
+
+</body>
+
+</html>

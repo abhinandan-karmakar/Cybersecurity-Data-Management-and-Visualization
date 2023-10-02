@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>Admin</title>
+	<link rel="stylesheet" type="text/css" href="/css/admin/dashboard.css"> 
+	<link rel="stylesheet" type="text/css" href="/css/header.css"> 
+</head>
+
+<body>
+	<header>
+		<a href="/adminDashboard" class="logo-link">
+			<img th:src="@{/image/logo.png}" alt="Logo" class="logo">
+		</a>
+		<span>Trash Dashboard</span>
+		<a href="/logout" class="header-button">Logout</a>
+	</header>
+
+	<a class="body-a" href="/admin/trashFiles">Trash Files</a><br>
+	<a class="body-a" href="/admin/searchTrashFileByDeleteTime">Search Trash File By Delete Time</a>
+	<a class="body-a" href="/admin/searchTrashFileByUploadTime">Search Trash File By Upload Time</a>
+</body>
+
+</html>

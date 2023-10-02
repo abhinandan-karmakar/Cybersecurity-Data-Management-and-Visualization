@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <!-- Header with company logo -->
+    <header>
+		<a href="" class="logo-link">
+			<img th:src="@{/image/logo.png}" alt="Logo" class="logo">
+		</a>
+	</header>
+
+    <!-- Content container -->
+    <div class="content-container">
+        <!-- Watermark image -->
+        <img class="bg-image" th:src="@{/image/bg.jpeg}" alt="Background Watermark">
+        
+        <!-- Login and Signup buttons -->
+        <div class="button-container">
+            <a href="/login" class="login-button">Login</a>
+            <a href="/signup" class="signup-button">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>

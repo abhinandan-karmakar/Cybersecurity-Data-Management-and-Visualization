@@ -2,13 +2,13 @@
 
 <head>
 	<title>Search Files</title>
-	<link rel="stylesheet" type="text/css" href="/css/admin/searchFile.css">
+	<link rel="stylesheet" type="text/css" href="/css/guest/searchFile.css">
 	<link rel="stylesheet" type="text/css" href="/css/header.css">
 </head>
 
 <body>
 	<header>
-		<a href="/adminDashboard" class="logo-link">
+		<a href="/guestDashboard" class="logo-link">
 			<img th:src="@{/image/logo.png}" alt="Logo" class="logo">
 		</a>
 		<span>Search Files</span>
@@ -16,7 +16,7 @@
 	</header>
 	
 	<h2>Enter Date Range</h2>
-	<form action="/admin/searchFileAction" method="post">
+	<form action="/guest/searchFileAction" method="post">
 		<label for="fromDate">From Date:</label>
 		<input type="date" id="fromDate" name="fromDate" required><br><br>
 

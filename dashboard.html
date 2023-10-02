@@ -2,25 +2,22 @@
 <html>
 
 <head>
-	<title>Admin</title>
-	<link rel="stylesheet" type="text/css" href="/css/admin/dashboard.css"> 
+	<title>User</title>
+	<link rel="stylesheet" type="text/css" href="/css/guest/dashboard.css"> 
 	<link rel="stylesheet" type="text/css" href="/css/header.css"> 
 </head>
 
 <body>
 	<header>
-		<a href="/adminDashboard" class="logo-link">
+		<a href="/guestDashboard" class="logo-link">
 			<img th:src="@{/image/logo.png}" alt="Logo" class="logo">
 		</a>
-		<span>Admin Dashboard</span>
+		<span>Guest Dashboard</span>
 		<a href="/logout" class="header-button">Logout</a>
 	</header>
 
-	<a class="body-a" href="/admin/allFiles">All Files</a><br>
-	<a class="body-a" href="/admin/searchFile">Search Files</a><br>
-	<a class="body-a" href="/admin/uploadFile">Upload File</a><br>
-	<a class="body-a" href="/admin/trash">Trash</a><br>
-	<a class="body-a" href="/admin/userControl">User Control</a>
+	<a class="body-a" href="/guest/allFiles">All Files</a><br>
+	<a class="body-a" href="/guest/searchFile">Search Files</a>
 </body>
 
 </html>
